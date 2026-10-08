@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Convite para Cris 👀</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- TELA INICIAL -->
+        <section class="card" id="telaInicio">
+
+            <div class="emoji-grande">👋</div>
+
+            <h1>Olá, Cris! ✨</h1>
+
+            <p>
+                Esse final de semana está com a cara de um date, né?
+            </p>
+
+            <h2>
+                Aceitaria ir em um comigo? 😌
+            </h2>
+
+            <div class="botoes">
+
+                <button
+                    type="button"
+                    class="btn principal"
+                    id="btnSim"
+                >
+                    Sim 😌
+                </button>
+
+                <button
+                    type="button"
+                    class="btn secundario"
+                    id="btnNao"
+                >
+                    Não 🙄
+                </button>
+
+            </div>
+
+            <p id="mensagemNao" class="mensagem"></p>
+
+        </section>
+
+
+        <!-- ESCOLHER DIA -->
+        <section class="card escondido" id="telaDia">
+
+            <button class="voltar" data-voltar="telaInicio">
+                ← Voltar
+            </button>
+
+            <div class="emoji-grande">😏</div>
+
+            <h1>Sabia...</h1>
+
+            <p class="destaque">
+                Seu bom gosto não ia me decepcionar 😂
+            </p>
+
+            <h2>Qual o melhor dia para você?</h2>
+
+            <div class="opcoes">
+
+                <button class="opcao dia" data-dia="Sábado">
+                    🗓️ Sábado
+                </button>
+
+                <button class="opcao dia" data-dia="Domingo">
+                    ☀️ Domingo
+                </button>
+
+                <button class="opcao dia" data-dia="Segunda-feira - feriado">
+                    😎 Segunda - Feriado
+                </button>
+
+            </div>
+
+            <button
+                type="button"
+                id="btnAdiar"
+                class="btn-link"
+            >
+                Podemos deixar para outro dia 😊
+            </button>
+
+        </section>
+
+
+        <!-- HORÁRIO -->
+        <section class="card escondido" id="telaHora">
+
+            <button class="voltar" data-voltar="telaDia">
+                ← Voltar
+            </button>
+
+            <div class="emoji-grande">⏰</div>
+
+            <h1>Agora ficou sério...</h1>
+
+            <p>
+                Que horas seriam boas para você?
+            </p>
+
+            <label for="hora">
+                Escolha o horário:
+            </label>
+
+            <input
+                type="time"
+                id="hora"
+            >
+
+            <button
+                type="button"
+                class="btn principal largura-total"
+                id="btnHora"
+            >
+                Próximo 👀
+            </button>
+
+            <p id="erroHora" class="erro"></p>
+
+        </section>
+
+
+        <!-- PEGADINHA -->
+        <section class="card escondido" id="telaPegadinha">
+
+            <button class="voltar" id="voltarPegadinha">
+                ← Voltar
+            </button>
+
+            <div class="emoji-grande" id="emojiPegadinha">
+                🤔
+            </div>
+
+            <h1>Agora escolha o rolê...</h1>
+
+            <div class="role-falso">
+
+                <p id="opcaoFalsa">
+                    Pensando em algumas opções...
+                </p>
+
+            </div>
+
+            <div class="carregando">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </section>
+
+
+        <!-- OPÇÕES VERDADEIRAS -->
+        <section class="card escondido" id="telaOpcoes">
+
+            <button class="voltar" data-voltar="telaHora">
+                ← Voltar
+            </button>
+
+            <div class="emoji-grande">😂</div>
+
+            <h1>Brincadeira kkkkk</h1>
+
+            <p>
+                Não vou te obrigar a correr uma maratona no primeiro date.
+            </p>
+
+            <h2>Agora as opções de verdade:</h2>
+
+            <div class="opcoes">
+
+                <button
+                    type="button"
+                    class="opcao local"
+                    data-local="Hamburgueria"
+                >
+                    🍔 Hamburgueria
+                </button>
+
+                <button
+                    type="button"
+                    class="opcao local"
+                    data-local="Sushi"
+                >
+                    🍣 Sushi
+                </button>
+
+                <button
+                    type="button"
+                    class="opcao local"
+                    data-local="Cinema"
+                >
+                    🎬 Cinema
+                </button>
+
+                <button
+                    type="button"
+                    class="opcao local"
+                    data-local="Barzinho"
+                >
+                    🍹 Barzinho
+                </button>
+
+                <button
+                    type="button"
+                    class="opcao local"
+                    data-local="Apenas nos vermos"
+                >
+                    😊 Apenas nos vermos
+                </button>
+
+                <button
+                    type="button"
+                    class="opcao especial local"
+                    data-local="Algo mais íntimo 👀"
+                >
+                    👀 Algo mais íntimo...
+                </button>
+
+                <button
+                    type="button"
+                    class="opcao outra-ideia"
+                    id="btnOutraIdeia"
+                >
+                    💭 Caso tenha outra ideia...
+                </button>
+
+            </div>
+
+
+            <!-- OUTRA IDEIA -->
+            <div
+                id="campoOutraIdeia"
+                class="campo-outra-ideia escondido"
+            >
+
+                <label for="outraIdeia">
+                    Então me conta 👀
+                </label>
+
+                <input
+                    type="text"
+                    id="outraIdeia"
+                    placeholder="Digite sua ideia..."
+                >
+
+                <button
+                    type="button"
+                    class="btn principal largura-total"
+                    id="btnConfirmarIdeia"
+                >
+                    Gostei dessa ideia 😌
+                </button>
+
+                <p
+                    id="erroIdeia"
+                    class="erro"
+                ></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL -->
+        <section class="card escondido" id="telaFinal">
+
+            <button class="voltar" data-voltar="telaOpcoes">
+                ← Voltar
+            </button>
+
+            <div class="emoji-grande coracao">
+                ❤️
+            </div>
+
+            <h1>Date encaminhado 😌</h1>
+
+            <p id="mensagemFinal"></p>
+
+            <div class="resumo">
+
+                <p>
+                    📅 <strong>Dia:</strong>
+                    <span id="resumoDia"></span>
+                </p>
+
+                <p>
+                    ⏰ <strong>Horário:</strong>
+                    <span id="resumoHora"></span>
+                </p>
+
+                <p>
+                    📍 <strong>Rolê:</strong>
+                    <span id="resumoLocal"></span>
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                class="btn whatsapp largura-total"
+                id="btnWhatsapp"
+            >
+                Enviar minha resposta 💌
+            </button>
+
+        </section>
+
+
+        <!-- ADIAR -->
+        <section class="card escondido" id="telaAdiar">
+
+            <button class="voltar" data-voltar="telaDia">
+                ← Voltar
+            </button>
+
+            <div class="emoji-grande">😊</div>
+
+            <h1>Sem problemas!</h1>
+
+            <p>
+                O convite continua de pé.
+            </p>
+
+            <p>
+                A gente combina quando você quiser 😌
+            </p>
+
+            <button
+                type="button"
+                class="btn whatsapp largura-total"
+                id="btnWhatsappAdiar"
+            >
+                Me avisar pelo WhatsApp 💌
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,513 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --rosa: #ff5470;
+    --rosa-claro: #ff8fa3;
+    --vinho: #7a2848;
+    --fundo1: #ffe5ec;
+    --fundo2: #ffc2d1;
+    --texto: #333;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        var(--fundo1),
+        var(--fundo2)
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    color: var(--texto);
+}
+
+.app {
+    width: 100%;
+    max-width: 430px;
+}
+
+.card {
+    position: relative;
+
+    background: rgba(255,255,255,0.96);
+
+    padding: 35px 28px;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px
+        rgba(80,20,40,0.18);
+
+    animation: aparecer 0.5s ease;
+}
+
+.escondido {
+    display: none;
+}
+
+h1 {
+    margin-top: 10px;
+    color: var(--vinho);
+}
+
+h2 {
+    font-size: 21px;
+    margin-top: 25px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.destaque {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.emoji-grande {
+    font-size: 50px;
+
+    animation:
+        flutuar
+        2s ease-in-out infinite;
+}
+
+
+/* BOTÃO VOLTAR */
+
+.voltar {
+    display: block;
+
+    border: none;
+    background: transparent;
+
+    color: #888;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    margin-bottom: 15px;
+
+    padding: 5px 0;
+
+    transition: 0.2s;
+}
+
+.voltar:hover {
+    color: var(--rosa);
+
+    transform: translateX(-3px);
+}
+
+
+/* BOTÕES */
+
+.botoes {
+    display: flex;
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.btn {
+    border: none;
+
+    padding: 14px 25px;
+
+    border-radius: 14px;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.principal {
+    background:
+        linear-gradient(
+            135deg,
+            var(--rosa),
+            var(--rosa-claro)
+        );
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px
+        rgba(255,84,112,0.3);
+}
+
+.secundario {
+    background: #eee;
+    color: #555;
+}
+
+.largura-total {
+    width: 100%;
+    margin-top: 22px;
+}
+
+.mensagem {
+    min-height: 25px;
+
+    margin-top: 20px;
+
+    color: var(--vinho);
+
+    font-weight: bold;
+}
+
+
+/* OPÇÕES */
+
+.opcoes {
+    display: grid;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.opcao {
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 14px;
+
+    border: 2px solid transparent;
+
+    background: #fff0f3;
+
+    color: var(--vinho);
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.opcao:hover {
+    transform: scale(1.03);
+
+    border-color: var(--rosa);
+
+    background: #ffe0e7;
+}
+
+.especial {
+    border: 1px dashed var(--rosa);
+}
+
+.outra-ideia {
+    background: #f5f5f5;
+    color: #555;
+}
+
+.btn-link {
+    margin-top: 25px;
+
+    background: transparent;
+
+    border: none;
+
+    color: #777;
+
+    text-decoration: underline;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+/* INPUTS */
+
+label {
+    display: block;
+
+    text-align: left;
+
+    margin-top: 25px;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    border: 2px solid #eee;
+
+    font-size: 17px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: var(--rosa);
+}
+
+.campo-outra-ideia {
+    margin-top: 25px;
+
+    padding-top: 5px;
+
+    animation: aparecer 0.4s ease;
+}
+
+.erro {
+    color: #d6294b;
+
+    font-size: 14px;
+
+    min-height: 20px;
+}
+
+
+/* PEGADINHA */
+
+.role-falso {
+    margin-top: 30px;
+
+    min-height: 70px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #fff0f3;
+
+    border-radius: 15px;
+}
+
+#opcaoFalsa {
+    font-size: 23px;
+
+    font-weight: bold;
+
+    color: var(--vinho);
+
+    animation: pulsar 0.8s infinite;
+}
+
+
+/* CARREGAMENTO */
+
+.carregando {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-top: 20px;
+}
+
+.carregando span {
+    width: 9px;
+    height: 9px;
+
+    background: var(--rosa);
+
+    border-radius: 50%;
+
+    animation:
+        bolinha
+        1s infinite;
+}
+
+.carregando span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.carregando span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+
+/* RESUMO */
+
+.resumo {
+    margin-top: 25px;
+
+    padding: 18px;
+
+    text-align: left;
+
+    background: #fff0f3;
+
+    border-radius: 15px;
+}
+
+.resumo p {
+    margin: 8px 0;
+}
+
+.whatsapp {
+    background: #25D366;
+
+    color: white;
+
+    font-weight: bold;
+}
+
+.coracao {
+    animation:
+        coracao
+        1s ease-in-out infinite;
+}
+
+
+/* ANIMAÇÕES */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes flutuar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes pulsar {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.07);
+    }
+}
+
+@keyframes bolinha {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-7px);
+    }
+}
+
+@keyframes coracao {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes tremida {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-7px);
+    }
+
+    50% {
+        transform: translateX(7px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.tremendo {
+    animation: tremida 0.4s;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 28px 22px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+}
